@@ -1,35 +1,84 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'fruit-list.dart';
 
 void main() {
-  runApp(MaterialApp(
-    home: MyApp(),
-    debugShowCheckedModeBanner: false,
-  ));
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+      ),
+      home: const SplashScreen(),  // Splash screen sebagai home
+    );
+  }
+}
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({Key? key}) : super(key: key);
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    // Timer untuk menunggu 3 detik sebelum pindah ke halaman utama
+    Timer(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: const Color(0xFFD8F3A2),
+      body: Center(
+        child: Image.asset(
+          'images/Fruitify.png',
+          width: 200,  // Ukuran gambar logo
+        ),
+      ),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFFFF), // Dark red color from the image
+        backgroundColor: const Color(0xFFFFFF), // Warna hijau muda
       ),
       drawer: Drawer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              padding: EdgeInsets.only(bottom: 25, top: 25, left: 77, right: 77),
-              color: Color(0xFFB71C1C), // Dark red color
+              padding: const EdgeInsets.only(bottom: 25, top: 25, left: 77, right: 77),
+              color: const Color(0xFFB71C1C), // Warna merah tua
               child: Column(
                 children: [
-                  CircleAvatar(
+                  const CircleAvatar(
                     radius: 40,
                     backgroundImage: AssetImage('images/foto_drawer.png'),
                   ),
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Naufal Muhammad',
                     style: TextStyle(
                       color: Colors.white,
@@ -37,8 +86,8 @@ class MyApp extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  SizedBox(height: 8),
-                  Text(
+                  const SizedBox(height: 8),
+                  const Text(
                     'naufalmuh@gmail.com',
                     style: TextStyle(
                       color: Colors.white70,
@@ -48,17 +97,17 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
               onTap: () {
-                // Navigate to home screen
+                // Navigasi ke halaman Home
               },
             ),
             ListTile(
-              leading: Icon(Icons.list),
-              title: Text('Fruit List'),
+              leading: const Icon(Icons.list),
+              title: const Text('Fruit List'),
               onTap: () {
                 // Menavigasi ke halaman FruitListView
                 Navigator.push(
@@ -68,28 +117,28 @@ class MyApp extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: Icon(Icons.info),
-              title: Text('About'),
+              leading: const Icon(Icons.info),
+              title: const Text('About'),
               onTap: () {
-                // Navigate to about screen
+                // Navigasi ke halaman About
               },
             ),
             ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Exit'),
+              leading: const Icon(Icons.exit_to_app),
+              title: const Text('Exit'),
               onTap: () {
-                // Exit the app
+                // Keluar dari aplikasi
               },
             ),
           ],
         ),
       ),
       body: Padding(
-        padding: EdgeInsets.only(top: 0, bottom: 16, left: 16, right: 16),
+        padding: const EdgeInsets.only(top: 0, bottom: 16, left: 16, right: 16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
+            const Text(
               'Welcome to Fruitify!',
               style: TextStyle(
                 fontSize: 30,
@@ -98,10 +147,10 @@ class MyApp extends StatelessWidget {
                 color: Color(0xFF386641),
               ),
             ),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
             Image.asset('images/semangka.png', width: 400),
-            SizedBox(height: 12),
-            Text(
+            const SizedBox(height: 12),
+            const Text(
               'Are you wondering what fruit\nto eat today?',
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -110,13 +159,13 @@ class MyApp extends StatelessWidget {
                 fontWeight: FontWeight.w900,
               ),
             ),
-            SizedBox(height: 16),
-            Text(
+            const SizedBox(height: 16),
+            const Text(
               'Well here you can see the different\ntypes of fruits and their benefits',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 12,
-                fontFamily: 'PlusJakartaSans', // Use the custom font
+                fontFamily: 'PlusJakartaSans',
               ),
             ),
           ],

@@ -66,9 +66,11 @@ flutter:
      - images/pepaya.png
      - images/melon.png
      - images/watermelon.png
+     - images/semangka-detail.png
      - images/pisang-detail.png
      - images/melon-detail.png
      - images/pepaya-detail.png
+     - images/Fruitify.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -86,6 +88,10 @@ flutter:
     - family: PlusJakartaSans
       fonts:
         - asset: font/jakartaplus.ttf
+        - asset: font/jakartaplus-Bold.ttf
+        - asset: font/jakartaplus-ExtraBold.ttf
+        - asset: font/jakartaplus-Regular.ttf
+        - asset: font/jakartaplus-Medium.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
