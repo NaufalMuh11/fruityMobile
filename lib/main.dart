@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'fruit-list.dart';
 
 void main() {
@@ -127,7 +128,7 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.exit_to_app),
               title: const Text('Exit'),
               onTap: () {
-                // Keluar dari aplikasi
+                SystemNavigator.pop();
               },
             ),
           ],
