@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'fruit-detail.dart';
+import 'about.dart';
+import 'main.dart';
 
 class FruitListView extends StatelessWidget {
   @override
@@ -7,6 +10,80 @@ class FruitListView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFFF),
+      ),
+      drawer: Drawer(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(bottom: 25, top: 25, left: 77, right: 77),
+              color: const Color(0xFFB71C1C), // Warna merah tua
+              child: Column(
+                children: [
+                  const CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('images/foto_drawer.png'),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Naufal Muhammad',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'naufalmuh@gmail.com',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.list),
+              title: const Text('Fruit List'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => FruitListView()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('About'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.exit_to_app),
+              title: const Text('Exit'),
+              onTap: () {
+                SystemNavigator.pop(); // Menutup aplikasi
+              },
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [
@@ -155,4 +232,3 @@ class FruitCard extends StatelessWidget {
     );
   }
 }
-
