@@ -38,7 +38,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Melon',
-                            fruitImage: 'images/melon.png',
+                            fruitImage: 'images/melon-detail.png',
                             fruitDescription:
                             'Melons are hydrating, low-calorie fruits rich in vitamin C, vitamin A, potassium, and antioxidants.',
                           ),
@@ -57,7 +57,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Banana',
-                            fruitImage: 'images/pisang.png',
+                            fruitImage: 'images/pisang-detail.png',
                             fruitDescription:
                             'Bananas are a great source of potassium, vitamin B6, and vitamin C, promoting heart health and digestive health.',
                           ),
@@ -76,7 +76,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Papaya',
-                            fruitImage: 'images/pepaya.png',
+                            fruitImage: 'images/pepaya-detail.png',
                             fruitDescription:
                             'Papayas are rich in vitamin C, vitamin A, and folate, supporting digestion, immunity, and skin health.',
                           ),
@@ -95,7 +95,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Watermelon',
-                            fruitImage: 'images/watermelon.png',
+                            fruitImage: 'images/semangka-detail.png',
                             fruitDescription:
                             'Watermelons are refreshing fruits rich in water content, vitamin C, and lycopene, promoting hydration and heart health.',
                           ),

@@ -15,59 +15,41 @@ class FruitDetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(fruitName),
+        backgroundColor: Colors.transparent,
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Card(
-          elevation: 4.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.0),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Image.asset(
+            fruitImage,
+            width: double.infinity, // Mengisi seluruh lebar layar
+            fit: BoxFit.cover,      // Menyesuaikan gambar
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Center(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(16.0),
-                    topRight: Radius.circular(16.0),
-                  ),
-                  child: Image.network(
-                    fruitImage,
-                    height: 200.0,
-                    fit: BoxFit.cover,
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  fruitName,
+                  style: TextStyle(
+                      fontFamily: 'PlusJakartaSans',
+                      fontSize: 26,
+                      fontWeight: FontWeight.w900),
+                ),
+                SizedBox(height: 8.0),
+                Text(
+                  fruitDescription,
+                  style: TextStyle(
+                    fontFamily: 'PlusJakartaSans',
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500
                   ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Center(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        fruitName,
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .headlineSmall,
-                      ),
-                      SizedBox(height: 8.0),
-                      Text(
-                        fruitDescription,
-                        style: Theme
-                            .of(context)
-                            .textTheme
-                            .bodyMedium,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
