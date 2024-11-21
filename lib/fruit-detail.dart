@@ -16,32 +16,57 @@ class FruitDetailPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(fruitName),
-        backgroundColor: Color(0xFFB71C1C),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(fruitImage),
-            SizedBox(height: 20),
-            Text(
-              fruitName,
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+        child: Card(
+          elevation: 4.0,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16.0),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(16.0),
+                    topRight: Radius.circular(16.0),
+                  ),
+                  child: Image.network(
+                    fruitImage,
+                    height: 200.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
               ),
-            ),
-            SizedBox(height: 16),
-            Text(
-              fruitDescription,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.normal,
-                color: Colors.black87,
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Center(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        fruitName,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .headlineSmall,
+                      ),
+                      SizedBox(height: 8.0),
+                      Text(
+                        fruitDescription,
+                        style: Theme
+                            .of(context)
+                            .textTheme
+                            .bodyMedium,
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

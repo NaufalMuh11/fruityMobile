@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'fruit-detail.dart';
 
 class FruitListView extends StatelessWidget {
   @override
@@ -22,28 +23,90 @@ class FruitListView extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16),  // Memberikan ruang antara teks dan daftar buah
+          SizedBox(height: 16), // Memberikan ruang antara teks dan daftar buah
 
           // Bagian scrollable untuk daftar buah
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  FruitCard(
-                    fruitImage: 'images/melon.png',
-                    fruitName: 'Melon',
+                  // Navigasi ke halaman detail saat item diklik
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FruitDetailPage(
+                            fruitName: 'Melon',
+                            fruitImage: 'images/melon.png',
+                            fruitDescription:
+                            'Melons are hydrating, low-calorie fruits rich in vitamin C, vitamin A, potassium, and antioxidants.',
+                          ),
+                        ),
+                      );
+                    },
+                    child: FruitCard(
+                      fruitImage: 'images/melon.png',
+                      fruitName: 'Melon',
+                    ),
                   ),
-                  FruitCard(
-                    fruitImage: 'images/pisang.png',
-                    fruitName: 'Banana',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FruitDetailPage(
+                            fruitName: 'Banana',
+                            fruitImage: 'images/pisang.png',
+                            fruitDescription:
+                            'Bananas are a great source of potassium, vitamin B6, and vitamin C, promoting heart health and digestive health.',
+                          ),
+                        ),
+                      );
+                    },
+                    child: FruitCard(
+                      fruitImage: 'images/pisang.png',
+                      fruitName: 'Banana',
+                    ),
                   ),
-                  FruitCard(
-                    fruitImage: 'images/pepaya.png',
-                    fruitName: 'Papaya',
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FruitDetailPage(
+                            fruitName: 'Papaya',
+                            fruitImage: 'images/pepaya.png',
+                            fruitDescription:
+                            'Papayas are rich in vitamin C, vitamin A, and folate, supporting digestion, immunity, and skin health.',
+                          ),
+                        ),
+                      );
+                    },
+                    child: FruitCard(
+                      fruitImage: 'images/pepaya.png',
+                      fruitName: 'Papaya',
+                    ),
                   ),
-              FruitCard(
-                fruitImage: 'images/watermelon.png',
-                fruitName: 'Watermelon',)
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FruitDetailPage(
+                            fruitName: 'Watermelon',
+                            fruitImage: 'images/watermelon.png',
+                            fruitDescription:
+                            'Watermelons are refreshing fruits rich in water content, vitamin C, and lycopene, promoting hydration and heart health.',
+                          ),
+                        ),
+                      );
+                    },
+                    child: FruitCard(
+                      fruitImage: 'images/watermelon.png',
+                      fruitName: 'Watermelon',
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -69,11 +132,11 @@ class FruitCard extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: Card(
         color: Colors.transparent,
-        elevation: 0,  // Remove the shadow to make it flat
+        elevation: 0, // Remove the shadow to make it flat
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Center(  // Center the image
+            Center( // Center the image
               child: Image.asset(fruitImage),
             ),
             Padding(
@@ -83,7 +146,7 @@ class FruitCard extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                  fontFamily: 'PlusJakartaSans'
+                  fontFamily: 'PlusJakartaSans',
                 ),
               ),
             ),
@@ -93,3 +156,4 @@ class FruitCard extends StatelessWidget {
     );
   }
 }
+
