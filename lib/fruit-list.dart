@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'fruit-detail.dart';
+import 'about.dart';
+import 'main.dart';
 
 class FruitListView extends StatelessWidget {
   @override
@@ -8,11 +11,84 @@ class FruitListView extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Color(0xFFFF),
       ),
+      drawer: Drawer(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              padding: const EdgeInsets.only(bottom: 25, top: 25, left: 77, right: 77),
+              color: const Color(0xFFB71C1C), // Warna merah tua
+              child: Column(
+                children: [
+                  const CircleAvatar(
+                    radius: 40,
+                    backgroundImage: AssetImage('images/foto_drawer.png'),
+                  ),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Naufal Muhammad',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    'naufalmuh@gmail.com',
+                    style: TextStyle(
+                      color: Colors.white70,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 16),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomePage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.list),
+              title: const Text('Fruit List'),
+              onTap: () {
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => FruitListView()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.info),
+              title: const Text('About'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AboutPage()),
+                );
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.exit_to_app),
+              title: const Text('Exit'),
+              onTap: () {
+                SystemNavigator.pop(); // Menutup aplikasi
+              },
+            ),
+          ],
+        ),
+      ),
       body: Column(
         children: [
-          // Bagian teks yang tidak akan digulung
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 2, bottom: 2, left: 16, right: 16),
             child: Text(
               'Fruit List',
               style: TextStyle(
@@ -23,7 +99,7 @@ class FruitListView extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16), // Memberikan ruang antara teks dan daftar buah
+          SizedBox(height: 2), // Memberikan ruang antara teks dan daftar buah
 
           // Bagian scrollable untuk daftar buah
           Expanded(
@@ -38,7 +114,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Melon',
-                            fruitImage: 'images/melon.png',
+                            fruitImage: 'images/melon-detail.png',
                             fruitDescription:
                             'Melons are hydrating, low-calorie fruits rich in vitamin C, vitamin A, potassium, and antioxidants.',
                           ),
@@ -57,7 +133,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Banana',
-                            fruitImage: 'images/pisang.png',
+                            fruitImage: 'images/pisang-detail.png',
                             fruitDescription:
                             'Bananas are a great source of potassium, vitamin B6, and vitamin C, promoting heart health and digestive health.',
                           ),
@@ -76,7 +152,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Papaya',
-                            fruitImage: 'images/pepaya.png',
+                            fruitImage: 'images/pepaya-detail.png',
                             fruitDescription:
                             'Papayas are rich in vitamin C, vitamin A, and folate, supporting digestion, immunity, and skin health.',
                           ),
@@ -95,7 +171,7 @@ class FruitListView extends StatelessWidget {
                         MaterialPageRoute(
                           builder: (context) => FruitDetailPage(
                             fruitName: 'Watermelon',
-                            fruitImage: 'images/watermelon.png',
+                            fruitImage: 'images/semangka-detail.png',
                             fruitDescription:
                             'Watermelons are refreshing fruits rich in water content, vitamin C, and lycopene, promoting hydration and heart health.',
                           ),
@@ -156,4 +232,3 @@ class FruitCard extends StatelessWidget {
     );
   }
 }
-

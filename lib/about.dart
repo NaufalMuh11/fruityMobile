@@ -1,30 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:test2/main.dart';
 import 'fruit-list.dart';
-import 'about.dart';
-import 'splash-screen.dart';
 
-void main() {
-  runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: SplashScreen(),  // Splash screen sebagai home
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +50,10 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.home),
               title: const Text('Home'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()), // Navigate to HomePage
+                );
               },
             ),
             ListTile(
@@ -89,10 +72,7 @@ class HomePage extends StatelessWidget {
               title: const Text('About'),
               onTap: () {
                 // Menavigasi ke halaman AboutPage
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const AboutPage()),
-                );
+                Navigator.pop(context); // Kembali ke halaman About jika sudah di halaman ini
               },
             ),
             ListTile(
@@ -107,39 +87,23 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 0, bottom: 16, left: 16, right: 16),
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Welcome to Fruitify!',
-              style: TextStyle(
-                fontSize: 30,
-                fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w900,
-                color: Color(0xFF386641),
-              ),
+            Image.asset(
+              'images/Fruitify.png', // Pastikan path gambar benar
+              width: 200,
             ),
-            const SizedBox(height: 12),
-            Image.asset('images/semangka.png', width: 400),
-            const SizedBox(height: 12),
+            const SizedBox(height: 20),
             const Text(
-              'Are you wondering what fruit\nto eat today?',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 18,
-                fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w900,
-              ),
+              'Fruitify is your daily companion for discovering fresh, nutritious fruits! Whether you\'re seeking inspiration for healthy choices or simply curious about seasonal options.',
+              style: TextStyle(fontSize: 16),
             ),
             const SizedBox(height: 16),
             const Text(
-              'Well here you can see the different\ntypes of fruits and their benefits',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 12,
-                fontFamily: 'PlusJakartaSans',
-              ),
+              'Fruitify provides a curated list of fruits every day. Explore their benefits, nutritional insights, and make wellness a part of your routine with ease.',
+              style: TextStyle(fontSize: 16),
             ),
           ],
         ),
