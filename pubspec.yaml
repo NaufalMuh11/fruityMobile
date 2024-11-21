@@ -92,6 +92,8 @@ flutter:
         - asset: font/jakartaplus-ExtraBold.ttf
         - asset: font/jakartaplus-Regular.ttf
         - asset: font/jakartaplus-Medium.ttf
+        - asset: font/jakartaplus-SemiBold.ttf
+        - asset: font/PlusJakartaSans-Light.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:

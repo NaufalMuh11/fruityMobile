@@ -45,7 +45,7 @@ class HomePage extends StatelessWidget {
                     radius: 40,
                     backgroundImage: AssetImage('images/foto_drawer.png'),
                   ),
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 2),
                   const Text(
                     'Naufal Muhammad',
                     style: TextStyle(
@@ -54,7 +54,7 @@ class HomePage extends StatelessWidget {
                       fontSize: 16,
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 2),
                   const Text(
                     'naufalmuh@gmail.com',
                     style: TextStyle(
@@ -107,10 +107,11 @@ class HomePage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(top: 0, bottom: 16, left: 16, right: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            const SizedBox(height: 20), // Add space above the welcome text
             const Text(
               'Welcome to Fruitify!',
               style: TextStyle(
@@ -120,16 +121,16 @@ class HomePage extends StatelessWidget {
                 color: Color(0xFF386641),
               ),
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16), // Add space below the welcome text
             Image.asset('images/semangka.png', width: 400),
             const SizedBox(height: 12),
             const Text(
               'Are you wondering what fruit\nto eat today?',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 20,
                 fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w900,
+                fontWeight: FontWeight.w600,
               ),
             ),
             const SizedBox(height: 16),
@@ -137,8 +138,9 @@ class HomePage extends StatelessWidget {
               'Well here you can see the different\ntypes of fruits and their benefits',
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 12,
+                fontSize: 16,
                 fontFamily: 'PlusJakartaSans',
+                fontWeight: FontWeight.w300
               ),
             ),
           ],

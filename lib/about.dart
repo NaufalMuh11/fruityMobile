@@ -86,26 +86,32 @@ class AboutPage extends StatelessWidget {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Image.asset(
-              'images/Fruitify.png', // Pastikan path gambar benar
-              width: 200,
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Fruitify is your daily companion for discovering fresh, nutritious fruits! Whether you\'re seeking inspiration for healthy choices or simply curious about seasonal options.',
-              style: TextStyle(fontSize: 16),
-            ),
-            const SizedBox(height: 16),
-            const Text(
-              'Fruitify provides a curated list of fruits every day. Explore their benefits, nutritional insights, and make wellness a part of your routine with ease.',
-              style: TextStyle(fontSize: 16),
-            ),
-          ],
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 32.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              const SizedBox(height: 40), // Jarak dari atas layar
+              Image.asset(
+                'images/Fruitify.png', // Pastikan path gambar benar
+                width: 200,
+              ),
+              const SizedBox(height: 20),
+              const Text(
+                'Fruitify is your daily companion for discovering fresh, nutritious fruits! Whether you\'re seeking inspiration for healthy choices or simply curious about seasonal options.',
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Fruitify provides a curated list of fruits every day. Explore their benefits, nutritional insights, and make wellness a part of your routine with ease.',
+                style: TextStyle(fontSize: 16),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
       ),
     );

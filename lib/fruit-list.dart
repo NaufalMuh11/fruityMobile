@@ -9,7 +9,17 @@ class FruitListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFFF),
+        backgroundColor: const Color(0xFFFFFFFF),
+        centerTitle: true,
+        title: const Text(
+          'Fruit List',
+          style: TextStyle(
+            fontSize: 30,
+            fontFamily: 'PlusJakartaSans',
+            fontWeight: FontWeight.w900,
+            color: Color(0xFF386641),
+          ),
+        ),
       ),
       drawer: Drawer(
         child: Column(
@@ -85,109 +95,100 @@ class FruitListView extends StatelessWidget {
           ],
         ),
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 2, bottom: 2, left: 16, right: 16),
-            child: Text(
-              'Fruit List',
-              style: TextStyle(
-                fontSize: 30,
-                fontFamily: 'PlusJakartaSans',
-                fontWeight: FontWeight.w900,
-                color: Color(0xFF386641),
+      body: Container(
+        color: const Color(0xFFFFFFFF), // Set the background color of the body
+        child: Column(
+          children: [
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 14),
+                    ),
+                    // Navigasi ke halaman detail saat item diklik
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FruitDetailPage(
+                              fruitName: 'Melon',
+                              fruitImage: 'images/melon-detail.png',
+                              fruitDescription:
+                              'Melons are hydrating, low-calorie fruits rich in vitamin C, vitamin A, potassium, and antioxidants.',
+                            ),
+                          ),
+                        );
+                      },
+                      child: const FruitCard(
+                        fruitImage: 'images/melon.png',
+                        fruitName: 'Melon',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FruitDetailPage(
+                              fruitName: 'Banana',
+                              fruitImage: 'images/pisang-detail.png',
+                              fruitDescription:
+                              'Bananas are a great source of potassium, vitamin B6, and vitamin C, promoting heart health and digestive health.',
+                            ),
+                          ),
+                        );
+                      },
+                      child: const FruitCard(
+                        fruitImage: 'images/pisang.png',
+                        fruitName: 'Banana',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FruitDetailPage(
+                              fruitName: 'Papaya',
+                              fruitImage: 'images/pepaya-detail.png',
+                              fruitDescription:
+                              'Papayas are rich in vitamin C, vitamin A, and folate, supporting digestion, immunity, and skin health.',
+                            ),
+                          ),
+                        );
+                      },
+                      child: const FruitCard(
+                        fruitImage: 'images/pepaya.png',
+                        fruitName: 'Papaya',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => FruitDetailPage(
+                              fruitName: 'Watermelon',
+                              fruitImage: 'images/semangka-detail.png',
+                              fruitDescription:
+                              'Watermelons are refreshing fruits rich in water content, vitamin C, and lycopene, promoting hydration and heart health.',
+                            ),
+                          ),
+                        );
+                      },
+                      child: const FruitCard(
+                        fruitImage: 'images/watermelon.png',
+                        fruitName: 'Watermelon',
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          SizedBox(height: 2), // Memberikan ruang antara teks dan daftar buah
-
-          // Bagian scrollable untuk daftar buah
-          Expanded(
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  // Navigasi ke halaman detail saat item diklik
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FruitDetailPage(
-                            fruitName: 'Melon',
-                            fruitImage: 'images/melon-detail.png',
-                            fruitDescription:
-                            'Melons are hydrating, low-calorie fruits rich in vitamin C, vitamin A, potassium, and antioxidants.',
-                          ),
-                        ),
-                      );
-                    },
-                    child: FruitCard(
-                      fruitImage: 'images/melon.png',
-                      fruitName: 'Melon',
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FruitDetailPage(
-                            fruitName: 'Banana',
-                            fruitImage: 'images/pisang-detail.png',
-                            fruitDescription:
-                            'Bananas are a great source of potassium, vitamin B6, and vitamin C, promoting heart health and digestive health.',
-                          ),
-                        ),
-                      );
-                    },
-                    child: FruitCard(
-                      fruitImage: 'images/pisang.png',
-                      fruitName: 'Banana',
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FruitDetailPage(
-                            fruitName: 'Papaya',
-                            fruitImage: 'images/pepaya-detail.png',
-                            fruitDescription:
-                            'Papayas are rich in vitamin C, vitamin A, and folate, supporting digestion, immunity, and skin health.',
-                          ),
-                        ),
-                      );
-                    },
-                    child: FruitCard(
-                      fruitImage: 'images/pepaya.png',
-                      fruitName: 'Papaya',
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => FruitDetailPage(
-                            fruitName: 'Watermelon',
-                            fruitImage: 'images/semangka-detail.png',
-                            fruitDescription:
-                            'Watermelons are refreshing fruits rich in water content, vitamin C, and lycopene, promoting hydration and heart health.',
-                          ),
-                        ),
-                      );
-                    },
-                    child: FruitCard(
-                      fruitImage: 'images/watermelon.png',
-                      fruitName: 'Watermelon',
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
@@ -219,7 +220,7 @@ class FruitCard extends StatelessWidget {
               padding: const EdgeInsets.all(2.0),
               child: Text(
                 fruitName,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'PlusJakartaSans',
