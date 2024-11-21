@@ -10,9 +10,8 @@ class FruitListView extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // Bagian teks yang tidak akan digulung
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.only(top: 2, bottom: 2, left: 16, right: 16),
             child: Text(
               'Fruit List',
               style: TextStyle(
@@ -23,7 +22,7 @@ class FruitListView extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 16), // Memberikan ruang antara teks dan daftar buah
+          SizedBox(height: 2), // Memberikan ruang antara teks dan daftar buah
 
           // Bagian scrollable untuk daftar buah
           Expanded(
