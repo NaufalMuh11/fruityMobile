@@ -89,14 +89,14 @@ class FruitListView extends StatelessWidget {
               leading: const Icon(Icons.exit_to_app),
               title: const Text('Exit'),
               onTap: () {
-                SystemNavigator.pop(); // Menutup aplikasi
+                SystemNavigator.pop();
               },
             ),
           ],
         ),
       ),
       body: Container(
-        color: const Color(0xFFFFFFFF), // Set the background color of the body
+        color: const Color(0xFFFFFFFF),
         child: Column(
           children: [
             Expanded(
@@ -106,7 +106,6 @@ class FruitListView extends StatelessWidget {
                     const Padding(
                       padding: EdgeInsets.only(top: 14),
                     ),
-                    // Navigasi ke halaman detail saat item diklik
                     GestureDetector(
                       onTap: () {
                         Navigator.push(
@@ -209,7 +208,7 @@ class FruitCard extends StatelessWidget {
       padding: const EdgeInsets.all(2.0),
       child: Card(
         color: Colors.transparent,
-        elevation: 0, // Remove the shadow to make it flat
+        elevation: 0,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [

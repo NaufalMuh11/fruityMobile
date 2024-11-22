@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: SplashScreen(),  // Splash screen sebagai home
+      home: SplashScreen(),
     );
   }
 }
@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFFFFF), // Warna hijau muda
+        backgroundColor: const Color(0xFFFFFF),
       ),
       drawer: Drawer(
         child: Column(
@@ -38,7 +38,7 @@ class HomePage extends StatelessWidget {
           children: [
             Container(
               padding: const EdgeInsets.only(bottom: 25, top: 25, left: 77, right: 77),
-              color: const Color(0xFFB71C1C), // Warna merah tua
+              color: const Color(0xFFB71C1C),
               child: Column(
                 children: [
                   const CircleAvatar(
@@ -77,7 +77,6 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.list),
               title: const Text('Fruit List'),
               onTap: () {
-                // Menavigasi ke halaman FruitListView
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => FruitListView()),
@@ -88,7 +87,6 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.info),
               title: const Text('About'),
               onTap: () {
-                // Menavigasi ke halaman AboutPage
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => const AboutPage()),
@@ -99,7 +97,6 @@ class HomePage extends StatelessWidget {
               leading: const Icon(Icons.exit_to_app),
               title: const Text('Exit'),
               onTap: () {
-                // Keluar dari aplikasi
                 SystemNavigator.pop();  // Menutup aplikasi
               },
             ),
@@ -111,7 +108,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 20), // Add space above the welcome text
+            const SizedBox(height: 20),
             const Text(
               'Welcome to Fruitify!',
               style: TextStyle(
@@ -121,7 +118,7 @@ class HomePage extends StatelessWidget {
                 color: Color(0xFF386641),
               ),
             ),
-            const SizedBox(height: 16), // Add space below the welcome text
+            const SizedBox(height: 16),
             Image.asset('images/semangka.png', width: 400),
             const SizedBox(height: 12),
             const Text(
